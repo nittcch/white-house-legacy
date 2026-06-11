@@ -23,7 +23,7 @@ const interior = [
   { src: whExterior.url, alt: "Restaurant Exterior" },
   { src: whEntrance.url, alt: "Entrance at Night" },
   { src: whInterior.url, alt: "Banquet Dining Hall" },
-  { src: eventSpace.toString(), alt: "Event Setup" },
+  { src: eventSpace, alt: "Event Setup" },
   { src: heroBg, alt: "Premium Ambience" },
 ];
 
