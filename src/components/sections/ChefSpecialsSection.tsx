@@ -72,7 +72,7 @@ export function ChefSpecialsSection() {
         <ScrollReveal>
           <div className="text-center mt-12">
             <Link
-              to="/chef-specials"
+              to="/menu"
               className="inline-flex items-center gap-2 px-6 py-3 border border-gold text-gold rounded-full font-medium hover:bg-gold hover:text-dark transition-colors"
             >
               View All Specials

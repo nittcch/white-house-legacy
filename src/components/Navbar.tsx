@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "Menu", to: "/menu" },
-  { label: "Chef's Specials", to: "/chef-specials" },
   { label: "Events", to: "/events" },
   { label: "Gallery", to: "/gallery" },
   { label: "Reviews", to: "/reviews" },
-  { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -43,10 +41,9 @@ export function Navbar() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 sm:h-20 items-center justify-between">
-            {/* Logo */}
             <Link to="/" className="flex items-center gap-2 shrink-0">
               <div className="relative">
-                <span className="text-xl sm:text-2xl font-bold tracking-wider font-heading text-burgundy">
+                <span className={`text-xl sm:text-2xl font-bold tracking-wider font-heading ${scrolled ? "text-burgundy" : "text-cream"}`}>
                   WHITE HOUSE
                 </span>
                 <span className="block text-[0.6rem] sm:text-xs tracking-[0.3em] text-gold uppercase -mt-1">
@@ -55,48 +52,48 @@ export function Navbar() {
               </div>
             </Link>
 
-            {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   activeProps={{ className: "text-burgundy bg-burgundy/5" }}
-                  className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-burgundy rounded-full transition-colors"
+                  className={`px-3 py-2 text-sm font-medium rounded-full transition-colors ${
+                    scrolled ? "text-foreground/80 hover:text-burgundy" : "text-cream/90 hover:text-gold"
+                  }`}
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href="tel:7507530889"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-burgundy hover:text-gold transition-colors"
+                className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                  scrolled ? "text-burgundy hover:text-gold" : "text-cream hover:text-gold"
+                }`}
               >
                 <Phone className="w-4 h-4" />
                 <span>75075 30889</span>
               </a>
             </div>
 
-            {/* Mobile Toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-burgundy/10 transition-colors"
+              className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? "hover:bg-burgundy/10" : "hover:bg-cream/10"}`}
               aria-label="Toggle menu"
             >
               {mobileOpen ? (
-                <X className="w-6 h-6 text-burgundy" />
+                <X className={`w-6 h-6 ${scrolled ? "text-burgundy" : "text-cream"}`} />
               ) : (
-                <Menu className="w-6 h-6 text-burgundy" />
+                <Menu className={`w-6 h-6 ${scrolled ? "text-burgundy" : "text-cream"}`} />
               )}
             </button>
           </div>
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

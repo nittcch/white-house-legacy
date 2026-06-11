@@ -29,10 +29,9 @@ export function Footer() {
               {[
                 { label: "Home", to: "/" },
                 { label: "Menu", to: "/menu" },
-                { label: "Chef's Specials", to: "/chef-specials" },
                 { label: "Events", to: "/events" },
                 { label: "Gallery", to: "/gallery" },
-                { label: "Careers", to: "/careers" },
+                { label: "Reviews", to: "/reviews" },
                 { label: "Contact", to: "/contact" },
               ].map((link) => (
                 <li key={link.to}>

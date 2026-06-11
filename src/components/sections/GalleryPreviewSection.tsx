@@ -2,20 +2,21 @@ import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Link } from "@tanstack/react-router";
 
-import heroBg from "@/assets/hero-bg.jpg";
+import whExterior from "@/assets/wh-exterior-1.jpg.asset.json";
+import whEntrance from "@/assets/wh-entrance.jpg.asset.json";
+import whInterior from "@/assets/wh-interior.jpg.asset.json";
 import biryani from "@/assets/dish-biryani.jpg";
 import paneerTikka from "@/assets/dish-paneer-tikka.jpg";
 import eventSpace from "@/assets/event-space.jpg";
 import chickenTikka from "@/assets/dish-chicken-tikka.jpg";
-import murghMusallam from "@/assets/dish-murgh-musallam.jpg";
 
 const galleryImages = [
-  { src: heroBg, alt: "Restaurant Interior", span: "col-span-2 row-span-2" },
-  { src: biryani, alt: "Chicken Biryani" },
+  { src: whExterior.url, alt: "White House Exterior", span: "col-span-2 row-span-2" },
+  { src: biryani, alt: "Chicken Hyderabadi Biryani" },
   { src: paneerTikka, alt: "Paneer Tikka" },
-  { src: eventSpace, alt: "Event Space", span: "col-span-2" },
-  { src: chickenTikka, alt: "Chicken Tikka" },
-  { src: murghMusallam, alt: "Murgh Musallam" },
+  { src: whInterior.url, alt: "Banquet Dining Hall", span: "col-span-2" },
+  { src: whEntrance.url, alt: "Restaurant Entrance" },
+  { src: chickenTikka, alt: "Tandoori Chicken Tikka" },
 ];
 
 export function GalleryPreviewSection() {
@@ -29,7 +30,7 @@ export function GalleryPreviewSection() {
               Gallery
             </h2>
             <p className="text-cream/60 max-w-2xl mx-auto">
-              A glimpse into our world of flavors, celebrations, and memorable moments.
+              Step inside our world of warm interiors, signature flavors, and unforgettable celebrations.
             </p>
           </div>
         </ScrollReveal>
@@ -47,8 +48,8 @@ export function GalleryPreviewSection() {
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="absolute bottom-3 left-3 text-cream text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+                <span className="absolute bottom-3 left-3 text-cream text-sm font-medium">
                   {img.alt}
                 </span>
               </motion.div>
