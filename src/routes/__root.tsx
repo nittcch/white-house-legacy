@@ -72,24 +72,40 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { FloatingButtons } from "@/components/FloatingButtons";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "White House Restaurant — Premium Family Dining in Shirpur" },
+      { name: "description", content: "White House Restaurant, Shirpur — Authentic Indian, Tandoor, Chinese & Seafood. Family-friendly dining, event hosting, and unforgettable flavors." },
+      { name: "author", content: "White House Restaurant" },
+      { property: "og:title", content: "White House Restaurant — Premium Family Dining in Shirpur" },
+      { property: "og:description", content: "Authentic Indian, Tandoor, Chinese & Seafood. Family-friendly dining, event hosting, and unforgettable flavors." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap",
       },
     ],
   }),
