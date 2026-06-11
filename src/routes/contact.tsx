@@ -1,12 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PageHeader } from "@/components/PageHeader";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { ReservationSection } from "@/components/sections/ReservationSection";
+import whEntrance from "@/assets/wh-entrance.jpg.asset.json";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — White House Restaurant" },
-      { name: "description", content: "Get in touch with White House Restaurant, Shirpur. Call 75075 30889 or visit us at SHOP NO 01, KG NAGAR, NAKA, Karwand, Shirpur." },
+      { title: "Contact Us — White House Restaurant Shirpur" },
+      { name: "description", content: "Call 75075 30889 or visit White House Restaurant at SHOP NO 01, KG NAGAR, NAKA, Karwand, Shirpur, Maharashtra 425405. Open daily 11 AM – 11 PM." },
       { property: "og:title", content: "Contact Us — White House Restaurant" },
-      { property: "og:description", content: "Call, WhatsApp, or visit White House Restaurant in Shirpur." },
+      { property: "og:description", content: "Call, WhatsApp, or visit us in Shirpur." },
+      { property: "og:image", content: whEntrance.url },
     ],
   }),
   component: ContactPage,
@@ -14,15 +19,15 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   return (
-    <div className="min-h-screen pt-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h1 className="text-4xl sm:text-5xl font-bold font-heading text-burgundy text-center mb-4">
-          Contact Us
-        </h1>
-        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
-          We'd love to hear from you. Reach out for reservations, events, or any inquiries.
-        </p>
-      </div>
-    </div>
+    <>
+      <PageHeader
+        eyebrow="Get In Touch"
+        title="Visit White House"
+        subtitle="We'd love to welcome you. Reach out for reservations, events, or any inquiry — we respond within minutes."
+        image={whEntrance.url}
+      />
+      <ContactSection />
+      <ReservationSection />
+    </>
   );
 }
