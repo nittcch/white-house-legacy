@@ -30,6 +30,7 @@ export const reviews: Review[] = [
     text: "Family sobat dinner la aalo hoto. Ambience khup chan aahe ani food quality pan excellent hoti. Staff khup helpful aahe.",
     language: "mr",
     date: "2 weeks ago",
+    photo: reviewPhotos.one,
   },
   {
     name: "Priya Sharma",
@@ -37,6 +38,7 @@ export const reviews: Review[] = [
     text: "Chicken Hyderabadi Dum Biryani was amazing. Quantity was enough for two people. Will definitely come back with friends.",
     language: "en",
     date: "1 month ago",
+    photo: reviewPhotos.two,
   },
   {
     name: "Sandeep Kulkarni",
@@ -44,6 +46,7 @@ export const reviews: Review[] = [
     text: "शिरपूरमध्ये family dinner साठी एकदम बेस्ट ठिकाण. Food taste khup chan aahe ani price pan reasonable aahe.",
     language: "mr",
     date: "3 weeks ago",
+    photo: reviewPhotos.three,
   },
   {
     name: "Anjali Deshmukh",
@@ -51,6 +54,7 @@ export const reviews: Review[] = [
     text: "Food quality is consistent every time. Biryani and tandoori starters are my favorites. The Paneer Tikka Masala is heavenly!",
     language: "en",
     date: "2 months ago",
+    photo: reviewPhotos.four,
   },
   {
     name: "Vijay Joshi",
@@ -58,6 +62,7 @@ export const reviews: Review[] = [
     text: "Best restaurant in Shirpur for non-veg. Murgh Musallam is must try. Celebration sathi perfect jaga.",
     language: "mr",
     date: "1 week ago",
+    photo: reviewPhotos.five,
   },
   {
     name: "Meera Gupta",
@@ -65,6 +70,7 @@ export const reviews: Review[] = [
     text: "हमने अपनी anniversary यहाँ celebrate की। बहुत अच्छा experience रहा। Decorations and service both were excellent.",
     language: "hi",
     date: "3 weeks ago",
+    photo: reviewPhotos.six,
   },
   {
     name: "Amit Shinde",
