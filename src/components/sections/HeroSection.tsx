@@ -18,6 +18,8 @@ export function HeroSection() {
         <img
           src={heroBg}
           alt="White House Restaurant Interior"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/60 to-dark/90" />
