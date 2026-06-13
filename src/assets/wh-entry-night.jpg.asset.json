@@ -1,11 +1,6 @@
 {
   "version": 1,
-  "asset_id": "a5200549-7d8f-4d5e-a538-0e3309efe2bd",
-  "project_id": "9b424eb4-0a7e-4c20-a75c-08eff3156c5c",
-  "url": "/__l5e/assets-v1/a5200549-7d8f-4d5e-a538-0e3309efe2bd/wh-entry-night.jpg",
-  "r2_key": "a/v1/9b424eb4-0a7e-4c20-a75c-08eff3156c5c/a5200549-7d8f-4d5e-a538-0e3309efe2bd/wh-entry-night.jpg",
+  "url": "/assets/wh-entry-night.jpg",
   "original_filename": "wh-entry-night.jpg",
-  "size": 177879,
-  "content_type": "image/jpeg",
-  "created_at": "2026-06-13T09:59:15Z"
+  "content_type": "image/jpeg"
 }
