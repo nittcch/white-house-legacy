@@ -17,6 +17,9 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "White House Restaurant — Premium Family Dining in Shirpur" },
       { property: "og:description", content: "Authentic Indian, Tandoor, Chinese & Seafood. Family-friendly dining, event hosting, and unforgettable flavors." },
     ],
+    links: [
+      { rel: "preload", as: "image", href: "/src/assets/hero-bg.jpg", fetchpriority: "high" },
+    ],
   }),
   component: Index,
 });
