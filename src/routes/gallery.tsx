@@ -4,39 +4,44 @@ import { PageHeader } from "@/components/PageHeader";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
-import whExterior from "@/assets/wh-exterior-1.jpg.asset.json";
-import whEntrance from "@/assets/wh-entrance.jpg.asset.json";
-import whInterior from "@/assets/wh-interior.jpg.asset.json";
+import whFacade from "@/assets/wh-facade.jpg.asset.json";
+import whEntryNight from "@/assets/wh-entry-night.jpg.asset.json";
+import whBanquetLong from "@/assets/wh-banquet-long.jpg.asset.json";
+import whBooth from "@/assets/wh-booth-seating.jpg.asset.json";
+import whGuestTable from "@/assets/wh-guest-table.jpg.asset.json";
+import whDesign from "@/assets/wh-design.jpg.asset.json";
+import whExteriorDay from "@/assets/wh-exterior-day.jpg.asset.json";
+import whFoodSpread from "@/assets/wh-food-spread.jpg.asset.json";
+import whMeals from "@/assets/wh-meals.jpg.asset.json";
+import whChickenWings from "@/assets/wh-chicken-wings.jpg.asset.json";
+
 import biryani from "@/assets/dish-biryani.jpg";
 import paneerTikka from "@/assets/dish-paneer-tikka.jpg";
 import chickenTikka from "@/assets/dish-chicken-tikka.jpg";
 import murghMusallam from "@/assets/dish-murgh-musallam.jpg";
 import muttonRogan from "@/assets/dish-mutton-rogan.jpg";
-import paneerKingdom from "@/assets/dish-paneer-kingdom.jpg";
 import fishCurry from "@/assets/dish-fish-curry.jpg";
-import vegThali from "@/assets/dish-veg-thali.jpg";
-import breads from "@/assets/dish-breads.jpg";
-import eventSpace from "@/assets/event-space.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const interior = [
-  { src: whExterior.url, alt: "Restaurant Exterior" },
-  { src: whEntrance.url, alt: "Entrance at Night" },
-  { src: whInterior.url, alt: "Banquet Dining Hall" },
-  { src: eventSpace, alt: "Event Setup" },
-  { src: heroBg, alt: "Premium Ambience" },
+  { src: whFacade.url, alt: "White House Facade" },
+  { src: whEntryNight.url, alt: "Entrance at Night" },
+  { src: whExteriorDay.url, alt: "Restaurant Exterior" },
+  { src: whBanquetLong.url, alt: "Long Banquet Table" },
+  { src: whBooth.url, alt: "Private Booth Seating" },
+  { src: whGuestTable.url, alt: "Guests at Dinner" },
+  { src: whDesign.url, alt: "Interior Design Detail" },
 ];
 
 const dishes = [
+  { src: whFoodSpread.url, alt: "White House Food Spread" },
+  { src: whMeals.url, alt: "Signature Meals" },
+  { src: whChickenWings.url, alt: "Chicken Wings" },
   { src: biryani, alt: "Chicken Hyderabadi Biryani" },
   { src: murghMusallam, alt: "Murgh Musallam" },
   { src: muttonRogan, alt: "Mutton Rogan Josh" },
   { src: chickenTikka, alt: "Tandoori Chicken Tikka" },
   { src: paneerTikka, alt: "Paneer Tikka" },
-  { src: paneerKingdom, alt: "Paneer Kingdom" },
   { src: fishCurry, alt: "Fish Curry" },
-  { src: vegThali, alt: "White House Veg Thali" },
-  { src: breads, alt: "Tandoori Breads Basket" },
 ];
 
 export const Route = createFileRoute("/gallery")({
@@ -46,7 +51,7 @@ export const Route = createFileRoute("/gallery")({
       { name: "description", content: "A visual journey through our restaurant, signature dishes, banquet hall and celebrations at White House Restaurant, Shirpur." },
       { property: "og:title", content: "Gallery — White House Restaurant" },
       { property: "og:description", content: "Photos of our food, interiors, and celebrations." },
-      { property: "og:image", content: whEntrance.url },
+      { property: "og:image", content: whFacade.url },
     ],
   }),
   component: GalleryPage,
@@ -59,7 +64,7 @@ function GalleryPage() {
         eyebrow="A Visual Journey"
         title="Our Gallery"
         subtitle="Step inside our world — warm interiors, signature dishes, and unforgettable celebrations captured in every frame."
-        image={whInterior.url}
+        image={whEntryNight.url}
       />
 
       <section className="py-16 sm:py-20 bg-cream">
@@ -72,7 +77,7 @@ function GalleryPage() {
               <ScrollReveal
                 key={img.alt}
                 delay={i * 0.05}
-                className={i === 0 ? "col-span-2 row-span-2" : i === 2 ? "col-span-2" : ""}
+                className={i === 0 ? "col-span-2 row-span-2" : i === 3 ? "col-span-2" : ""}
               >
                 <motion.div whileHover={{ scale: 1.02 }} className="relative w-full h-full rounded-xl overflow-hidden group">
                   <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
