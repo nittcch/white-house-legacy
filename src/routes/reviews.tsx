@@ -43,7 +43,7 @@ function ReviewsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((r, i) => (
               <ScrollReveal key={i} delay={(i % 6) * 0.05}>
-                <motion.div whileHover={{ y: -4 }} className="h-full p-6 rounded-2xl bg-card border border-border hover:border-gold/30 transition-all">
+                <motion.div whileHover={{ y: -4 }} className="h-full flex flex-col p-6 rounded-2xl bg-card border border-border hover:border-gold/30 transition-all">
                   <Quote className="w-8 h-8 text-gold/30 mb-3" />
                   <div className="flex items-center gap-1 mb-3">
                     {Array.from({ length: 5 }).map((_, j) => (
@@ -51,7 +51,12 @@ function ReviewsPage() {
                     ))}
                   </div>
                   <p className="text-sm text-foreground leading-relaxed mb-4">{r.text}</p>
-                  <div className="flex items-center justify-between pt-3 border-t border-border">
+                  {r.photo && (
+                    <div className="mb-4 rounded-lg overflow-hidden aspect-[4/3]">
+                      <img src={r.photo} alt={`Photo by ${r.name}`} loading="lazy" className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
                     <span className="text-sm font-medium text-burgundy">{r.name}</span>
                     <span className="text-xs text-muted-foreground">{r.date}</span>
                   </div>
