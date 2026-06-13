@@ -1,10 +1,27 @@
+import reviewPhoto1 from "@/assets/review-photo-1.jpg.asset.json";
+import reviewPhoto2 from "@/assets/review-photo-2.jpg.asset.json";
+import reviewPhoto3 from "@/assets/review-photo-3.jpg.asset.json";
+import reviewPhoto4 from "@/assets/review-photo-4.jpg.asset.json";
+import reviewPhoto5 from "@/assets/review-photo-5.jpg.asset.json";
+import reviewPhoto6 from "@/assets/review-photo-6.jpg.asset.json";
+
 export interface Review {
   name: string;
   rating: number;
   text: string;
   language: "en" | "mr" | "hi";
   date: string;
+  photo?: string;
 }
+
+export const reviewPhotos = {
+  one: reviewPhoto1.url,
+  two: reviewPhoto2.url,
+  three: reviewPhoto3.url,
+  four: reviewPhoto4.url,
+  five: reviewPhoto5.url,
+  six: reviewPhoto6.url,
+};
 
 export const reviews: Review[] = [
   {
