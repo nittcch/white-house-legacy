@@ -1,11 +1,6 @@
 {
   "version": 1,
-  "asset_id": "b174abb8-65fe-48b7-aed1-579bbc9f4f6b",
-  "project_id": "9b424eb4-0a7e-4c20-a75c-08eff3156c5c",
-  "url": "/__l5e/assets-v1/b174abb8-65fe-48b7-aed1-579bbc9f4f6b/wh-booth-seating.jpg",
-  "r2_key": "a/v1/9b424eb4-0a7e-4c20-a75c-08eff3156c5c/b174abb8-65fe-48b7-aed1-579bbc9f4f6b/wh-booth-seating.jpg",
+  "url": "/assets/wh-booth-seating.jpg",
   "original_filename": "wh-booth-seating.jpg",
-  "size": 150107,
-  "content_type": "image/jpeg",
-  "created_at": "2026-06-13T09:58:49Z"
+  "content_type": "image/jpeg"
 }

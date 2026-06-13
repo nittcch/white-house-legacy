@@ -1,11 +1,6 @@
 {
   "version": 1,
-  "asset_id": "7f80b64e-15e0-4e5f-9982-a1027323d7c9",
-  "project_id": "9b424eb4-0a7e-4c20-a75c-08eff3156c5c",
-  "url": "/__l5e/assets-v1/7f80b64e-15e0-4e5f-9982-a1027323d7c9/review-photo-5.jpg",
-  "r2_key": "a/v1/9b424eb4-0a7e-4c20-a75c-08eff3156c5c/7f80b64e-15e0-4e5f-9982-a1027323d7c9/review-photo-5.jpg",
+  "url": "/assets/review-photo-5.jpg",
   "original_filename": "review-photo-5.jpg",
-  "size": 9414,
-  "content_type": "image/jpeg",
-  "created_at": "2026-06-13T09:59:45Z"
+  "content_type": "image/jpeg"
 }
