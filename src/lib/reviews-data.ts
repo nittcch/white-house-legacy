@@ -1,10 +1,27 @@
+import reviewPhoto1 from "@/assets/review-photo-1.jpg.asset.json";
+import reviewPhoto2 from "@/assets/review-photo-2.jpg.asset.json";
+import reviewPhoto3 from "@/assets/review-photo-3.jpg.asset.json";
+import reviewPhoto4 from "@/assets/review-photo-4.jpg.asset.json";
+import reviewPhoto5 from "@/assets/review-photo-5.jpg.asset.json";
+import reviewPhoto6 from "@/assets/review-photo-6.jpg.asset.json";
+
 export interface Review {
   name: string;
   rating: number;
   text: string;
   language: "en" | "mr" | "hi";
   date: string;
+  photo?: string;
 }
+
+export const reviewPhotos = {
+  one: reviewPhoto1.url,
+  two: reviewPhoto2.url,
+  three: reviewPhoto3.url,
+  four: reviewPhoto4.url,
+  five: reviewPhoto5.url,
+  six: reviewPhoto6.url,
+};
 
 export const reviews: Review[] = [
   {
@@ -13,6 +30,7 @@ export const reviews: Review[] = [
     text: "Family sobat dinner la aalo hoto. Ambience khup chan aahe ani food quality pan excellent hoti. Staff khup helpful aahe.",
     language: "mr",
     date: "2 weeks ago",
+    photo: reviewPhotos.one,
   },
   {
     name: "Priya Sharma",
@@ -20,6 +38,7 @@ export const reviews: Review[] = [
     text: "Chicken Hyderabadi Dum Biryani was amazing. Quantity was enough for two people. Will definitely come back with friends.",
     language: "en",
     date: "1 month ago",
+    photo: reviewPhotos.two,
   },
   {
     name: "Sandeep Kulkarni",
@@ -27,6 +46,7 @@ export const reviews: Review[] = [
     text: "शिरपूरमध्ये family dinner साठी एकदम बेस्ट ठिकाण. Food taste khup chan aahe ani price pan reasonable aahe.",
     language: "mr",
     date: "3 weeks ago",
+    photo: reviewPhotos.three,
   },
   {
     name: "Anjali Deshmukh",
@@ -34,6 +54,7 @@ export const reviews: Review[] = [
     text: "Food quality is consistent every time. Biryani and tandoori starters are my favorites. The Paneer Tikka Masala is heavenly!",
     language: "en",
     date: "2 months ago",
+    photo: reviewPhotos.four,
   },
   {
     name: "Vijay Joshi",
@@ -41,6 +62,7 @@ export const reviews: Review[] = [
     text: "Best restaurant in Shirpur for non-veg. Murgh Musallam is must try. Celebration sathi perfect jaga.",
     language: "mr",
     date: "1 week ago",
+    photo: reviewPhotos.five,
   },
   {
     name: "Meera Gupta",
@@ -48,6 +70,7 @@ export const reviews: Review[] = [
     text: "हमने अपनी anniversary यहाँ celebrate की। बहुत अच्छा experience रहा। Decorations and service both were excellent.",
     language: "hi",
     date: "3 weeks ago",
+    photo: reviewPhotos.six,
   },
   {
     name: "Amit Shinde",

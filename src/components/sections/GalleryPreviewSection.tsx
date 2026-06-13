@@ -2,21 +2,21 @@ import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Link } from "@tanstack/react-router";
 
-import whExterior from "@/assets/wh-exterior-1.jpg.asset.json";
-import whEntrance from "@/assets/wh-entrance.jpg.asset.json";
-import whInterior from "@/assets/wh-interior.jpg.asset.json";
-import biryani from "@/assets/dish-biryani.jpg";
-import paneerTikka from "@/assets/dish-paneer-tikka.jpg";
-import eventSpace from "@/assets/event-space.jpg";
-import chickenTikka from "@/assets/dish-chicken-tikka.jpg";
+import whFacade from "@/assets/wh-facade.jpg.asset.json";
+import whEntryNight from "@/assets/wh-entry-night.jpg.asset.json";
+import whBanquetLong from "@/assets/wh-banquet-long.jpg.asset.json";
+import whBooth from "@/assets/wh-booth-seating.jpg.asset.json";
+import whGuestTable from "@/assets/wh-guest-table.jpg.asset.json";
+import whDesign from "@/assets/wh-design.jpg.asset.json";
+import whFoodSpread from "@/assets/wh-food-spread.jpg.asset.json";
 
 const galleryImages = [
-  { src: whExterior.url, alt: "White House Exterior", span: "col-span-2 row-span-2" },
-  { src: biryani, alt: "Chicken Hyderabadi Biryani" },
-  { src: paneerTikka, alt: "Paneer Tikka" },
-  { src: whInterior.url, alt: "Banquet Dining Hall", span: "col-span-2" },
-  { src: whEntrance.url, alt: "Restaurant Entrance" },
-  { src: chickenTikka, alt: "Tandoori Chicken Tikka" },
+  { src: whFacade.url, alt: "White House Facade", span: "col-span-2 row-span-2" },
+  { src: whEntryNight.url, alt: "Entrance at Night" },
+  { src: whBanquetLong.url, alt: "Banquet Hall Setup" },
+  { src: whBooth.url, alt: "Private Booth Seating", span: "col-span-2" },
+  { src: whGuestTable.url, alt: "Guests Dining" },
+  { src: whDesign.url, alt: "Restaurant Interior Design" },
 ];
 
 export function GalleryPreviewSection() {
