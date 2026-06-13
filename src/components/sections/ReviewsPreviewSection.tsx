@@ -31,7 +31,7 @@ export function ReviewsPreviewSection() {
             <ScrollReveal key={i} delay={i * 0.08}>
               <motion.div
                 whileHover={{ y: -4 }}
-                className="p-6 rounded-2xl bg-card border border-border hover:border-gold/20 transition-all duration-300 h-full"
+                className="p-6 rounded-2xl bg-card border border-border hover:border-gold/20 transition-all duration-300 h-full flex flex-col"
               >
                 <Quote className="w-8 h-8 text-gold/30 mb-3" />
                 <div className="flex items-center gap-1 mb-3">
@@ -45,6 +45,11 @@ export function ReviewsPreviewSection() {
                   ))}
                 </div>
                 <p className="text-sm text-foreground leading-relaxed mb-4">{review.text}</p>
+                {review.photo && (
+                  <div className="mb-4 rounded-lg overflow-hidden aspect-[4/3]">
+                    <img src={review.photo} alt={`Photo by ${review.name}`} loading="lazy" className="w-full h-full object-cover" />
+                  </div>
+                )}
                 <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
                   <span className="text-sm font-medium text-burgundy">{review.name}</span>
                   <span className="text-xs text-muted-foreground">{review.date}</span>
