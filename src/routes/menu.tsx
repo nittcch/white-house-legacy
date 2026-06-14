@@ -118,13 +118,13 @@ function MenuPage() {
                     </div>
                     <ChevronDown
                       className={`w-5 h-5 text-muted-foreground transition-transform ${
-                        openId === category.id ? "rotate-180" : ""
+                        isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
 
                   <AnimatePresence>
-                    {openId === category.id && (
+                    {isOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
@@ -165,7 +165,8 @@ function MenuPage() {
                   </AnimatePresence>
                 </div>
               </ScrollReveal>
-            ))}
+              );
+            })}
           </div>
 
           <p className="text-center text-xs text-muted-foreground mt-8">
