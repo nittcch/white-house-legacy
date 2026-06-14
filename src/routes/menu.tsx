@@ -68,17 +68,42 @@ function MenuPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input
                   type="text"
-                  placeholder="Search dishes or categories..."
+                  placeholder="Search dishes (e.g. paneer, chicken, lassi)..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 rounded-full border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/50"
                 />
               </div>
+
+              <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
+                {([
+                  { id: "all", label: "All" },
+                  { id: "veg", label: "Veg only" },
+                  { id: "nonveg", label: "Non-Veg only" },
+                ] as const).map((opt) => (
+                  <button
+                    key={opt.id}
+                    onClick={() => setDietFilter(opt.id)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+                      dietFilter === opt.id
+                        ? "bg-burgundy text-cream border-burgundy"
+                        : "bg-card text-foreground border-border hover:bg-muted"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
 
           <div className="space-y-3">
-            {(search ? filtered : menuCategories).map((category) => (
+            {displayed.length === 0 && (
+              <p className="text-center text-muted-foreground py-10">No dishes match your search.</p>
+            )}
+            {displayed.map((category) => {
+              const isOpen = isFiltering || openId === category.id;
+              return (
               <ScrollReveal key={category.id}>
                 <div className="rounded-xl border border-border bg-card overflow-hidden">
                   <button
