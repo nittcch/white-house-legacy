@@ -9,13 +9,10 @@ export function MenuPreviewSection() {
   const [openCategory, setOpenCategory] = useState<string | null>("veg-tandoori");
   const [searchTerm, setSearchTerm] = useState("");
 
+  const q = searchTerm.trim().toLowerCase();
   const filteredCategories = menuCategories.map((cat) => ({
     ...cat,
-    items: cat.items.filter(
-      (item) =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        cat.name.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
+    items: cat.items.filter((item) => item.name.toLowerCase().includes(q)),
   })).filter((cat) => cat.items.length > 0);
 
   return (

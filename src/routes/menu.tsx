@@ -24,17 +24,26 @@ export const Route = createFileRoute("/menu")({
 function MenuPage() {
   const [openId, setOpenId] = useState<string | null>(menuCategories[3]?.id ?? null);
   const [search, setSearch] = useState("");
+  const [dietFilter, setDietFilter] = useState<"all" | "veg" | "nonveg">("all");
+
+  const q = search.trim().toLowerCase();
+  const isFiltering = q !== "" || dietFilter !== "all";
 
   const filtered = menuCategories
     .map((c) => ({
       ...c,
-      items: c.items.filter(
-        (i) =>
-          i.name.toLowerCase().includes(search.toLowerCase()) ||
-          c.name.toLowerCase().includes(search.toLowerCase())
-      ),
+      items: c.items.filter((i) => {
+        const matchesSearch = q === "" || i.name.toLowerCase().includes(q);
+        const matchesDiet =
+          dietFilter === "all" ||
+          (dietFilter === "veg" && i.veg === true) ||
+          (dietFilter === "nonveg" && i.veg === false);
+        return matchesSearch && matchesDiet;
+      }),
     }))
     .filter((c) => c.items.length > 0);
+
+  const displayed = isFiltering ? filtered : menuCategories;
 
   return (
     <>
@@ -59,17 +68,42 @@ function MenuPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input
                   type="text"
-                  placeholder="Search dishes or categories..."
+                  placeholder="Search dishes (e.g. paneer, chicken, lassi)..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 rounded-full border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/50"
                 />
               </div>
+
+              <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
+                {([
+                  { id: "all", label: "All" },
+                  { id: "veg", label: "Veg only" },
+                  { id: "nonveg", label: "Non-Veg only" },
+                ] as const).map((opt) => (
+                  <button
+                    key={opt.id}
+                    onClick={() => setDietFilter(opt.id)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+                      dietFilter === opt.id
+                        ? "bg-burgundy text-cream border-burgundy"
+                        : "bg-card text-foreground border-border hover:bg-muted"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
 
           <div className="space-y-3">
-            {(search ? filtered : menuCategories).map((category) => (
+            {displayed.length === 0 && (
+              <p className="text-center text-muted-foreground py-10">No dishes match your search.</p>
+            )}
+            {displayed.map((category) => {
+              const isOpen = isFiltering || openId === category.id;
+              return (
               <ScrollReveal key={category.id}>
                 <div className="rounded-xl border border-border bg-card overflow-hidden">
                   <button
@@ -84,13 +118,13 @@ function MenuPage() {
                     </div>
                     <ChevronDown
                       className={`w-5 h-5 text-muted-foreground transition-transform ${
-                        openId === category.id ? "rotate-180" : ""
+                        isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
 
                   <AnimatePresence>
-                    {openId === category.id && (
+                    {isOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
@@ -131,7 +165,8 @@ function MenuPage() {
                   </AnimatePresence>
                 </div>
               </ScrollReveal>
-            ))}
+              );
+            })}
           </div>
 
           <p className="text-center text-xs text-muted-foreground mt-8">
