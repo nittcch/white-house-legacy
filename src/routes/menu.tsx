@@ -24,17 +24,26 @@ export const Route = createFileRoute("/menu")({
 function MenuPage() {
   const [openId, setOpenId] = useState<string | null>(menuCategories[3]?.id ?? null);
   const [search, setSearch] = useState("");
+  const [dietFilter, setDietFilter] = useState<"all" | "veg" | "nonveg">("all");
+
+  const q = search.trim().toLowerCase();
+  const isFiltering = q !== "" || dietFilter !== "all";
 
   const filtered = menuCategories
     .map((c) => ({
       ...c,
-      items: c.items.filter(
-        (i) =>
-          i.name.toLowerCase().includes(search.toLowerCase()) ||
-          c.name.toLowerCase().includes(search.toLowerCase())
-      ),
+      items: c.items.filter((i) => {
+        const matchesSearch = q === "" || i.name.toLowerCase().includes(q);
+        const matchesDiet =
+          dietFilter === "all" ||
+          (dietFilter === "veg" && i.veg === true) ||
+          (dietFilter === "nonveg" && i.veg === false);
+        return matchesSearch && matchesDiet;
+      }),
     }))
     .filter((c) => c.items.length > 0);
+
+  const displayed = isFiltering ? filtered : menuCategories;
 
   return (
     <>
