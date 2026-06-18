@@ -13,9 +13,27 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 const nitroPreset = process.env.NITRO_PRESET
   || (process.env.VERCEL ? "vercel" : undefined);
 
+// These packages ship ESM files with "use client" module-level directives.
+// Nitro's SSR bundler (Rollup) cannot process top-level directives when it
+// rewraps modules, so they must be left external rather than bundled.
+const SSR_EXTERNALS = [
+  "framer-motion",
+  "@tanstack/react-query",
+  "@tanstack/react-router",
+];
+
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
-  nitro: nitroPreset ? { preset: nitroPreset } : true,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  nitro: {
+    ...(nitroPreset ? { preset: nitroPreset } : {}),
+    output: {
+      publicDir: "dist/client",
+    },
+    rollupConfig: {
+      external: SSR_EXTERNALS,
+    },
+  } as any,
 });
